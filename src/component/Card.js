@@ -1,12 +1,12 @@
-import react from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
+import { FaBeer } from 'react-icons/fa';
+import { useElementSize } from "usehooks-ts";
 
 const CardContent = styled.div`
   margin: 10px 10px 0 0;
   border-radius: 2px;
   border: 2px solid #000;
-  width: 70px;
-  height: 70px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24,9 +24,19 @@ const color = ['#FF6633', '#FFB399', '#FF33FF', '#FFFF99', '#00B3E6',
 '#E64D66', '#4DB380', '#FF4D4D', '#99E6E6', '#6666FF']
 
 export const Card = (props) => {
+  const colorCode = React.useMemo(() => {
+    return color[Math.floor(Math.random() * (color.length - 1))];
+  },[color]);
+
+  const squareRef = useRef(null)
+
+  const { width } = useElementSize(squareRef);
+
+
+
   return (
-      <CardContent style={{backgroundColor: `${color[Math.floor(Math.random() * (color.length - 1))]}`}}>
-          <div>Text</div>
+      <CardContent ref={squareRef} style={{backgroundColor: `${colorCode}`,  height: width}}>
+          <FaBeer />
       </CardContent>
   )
 };

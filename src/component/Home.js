@@ -22,20 +22,23 @@ const Button = styled.button`
 `;
 
 const CardContainer = styled.div`
-    margin: 20px 0;
+  margin: 20px 0;
 `;
 
 export const Home = (props) => {
-    const [inputField, setInputField] = useState({
-        rowField: null,
-        columnField: null
+  const [inputField, setInputField] = useState({
+    rowField: 0,
+    columnField: 0,
+  });
+  const [row, setRow] = useState(0);
+  const [column, setColumn] = useState(0);
+
+  const handleSubmit = () => {
+    setInputField({
+      rowField: parseInt(row ? row : 0),
+      columnField: parseInt(column ? column : 0),
     });
-
-    const handleSubmit = () => {
-        setInputField({...inputField});
-
-        console.log(inputField);
-    }
+  };
 
   return (
     <div
@@ -47,24 +50,34 @@ export const Home = (props) => {
       }}
     >
       <Input
-        type="text"
+        type="number"
         className="input-field"
         placeholder="Please enter no. of row"
         name="rowField"
-        onChange={(e) => setInputField({...inputField, rowField: e.target.value})}
+        onChange={(e) => setRow(e.target.value)}
       />
       <Input
-        type="text"
+        type="number"
         className="input-field"
         placeholder="Please enter no. of column"
         name="columnField"
-        onChange={(e) => setInputField({...inputField, columnField: e.target.value})}
+        onChange={(e) => setColumn(e.target.value)}
       />
       <Button onClick={handleSubmit}>Submit</Button>
 
-
       <CardContainer>
-          <Card />
+        <div
+          style={{
+            display: "grid",
+            gridTemplate: `repeat(${inputField?.rowField}, calc(100% / ${inputField?.rowField})) / repeat(${inputField?.columnField}, calc(100% / ${inputField?.columnField})`,
+          }}
+        >
+          {[...Array(inputField?.columnField * inputField?.rowField)].map(
+            (e, i) => {
+              return <Card />;
+            }
+          )}
+        </div>
       </CardContainer>
     </div>
   );
