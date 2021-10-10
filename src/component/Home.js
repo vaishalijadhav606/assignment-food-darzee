@@ -1,6 +1,16 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Card } from "./Card";
+import {
+  FaHome,
+  FaAccessibleIcon,
+  FaAmazon,
+  FaAmazonPay,
+  FaAlipay,
+  FaAngellist,
+  FaApple,
+  FaAsymmetrik,
+} from "react-icons/fa";
 
 const Input = styled.input`
   border: 1px solid #ccc;
@@ -25,6 +35,33 @@ const CardContainer = styled.div`
   margin: 20px 0;
 `;
 
+const icons = [
+  {
+    icon: <FaHome />,
+  },
+  {
+    icon: <FaAccessibleIcon />,
+  },
+  {
+    icon: <FaAmazon />,
+  },
+  {
+    icon: <FaAmazonPay />,
+  },
+  {
+    icon: <FaAlipay />,
+  },
+  {
+    icon: <FaAngellist />,
+  },
+  {
+    icon: <FaApple />,
+  },
+  {
+    icon: <FaAsymmetrik />,
+  },
+];
+
 export const Home = (props) => {
   const [inputField, setInputField] = useState({
     rowField: 0,
@@ -32,12 +69,23 @@ export const Home = (props) => {
   });
   const [row, setRow] = useState(0);
   const [column, setColumn] = useState(0);
+  const [newIcons , setNewIcons] = useState([]);
 
   const handleSubmit = () => {
     setInputField({
       rowField: parseInt(row ? row : 0),
       columnField: parseInt(column ? column : 0),
     });
+    let newIcons = [];
+    for (let i = 0; i < (parseInt(row ? row : 0) * parseInt(column ? column : 0)); i++) {
+      let index = i; 
+      if(icons.length <= i){
+        index = i % icons.length;
+      }
+      const element = icons[index];
+      newIcons.push({id: i, ...element});
+      setNewIcons(newIcons)
+    }
   };
 
   return (
@@ -74,7 +122,7 @@ export const Home = (props) => {
         >
           {[...Array(inputField?.columnField * inputField?.rowField)].map(
             (e, i) => {
-              return <Card />;
+              return newIcons[i]?.icon ? <Card icon={newIcons[i]?.icon} /> : null 
             }
           )}
         </div>
