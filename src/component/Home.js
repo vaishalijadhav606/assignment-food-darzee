@@ -10,6 +10,18 @@ import {
   FaAngellist,
   FaApple,
   FaAsymmetrik,
+  FaCloudscale,
+  FaCcDiscover,
+  FaCloudsmith,
+  FaCreativeCommonsNcJp,
+  FaCreativeCommonsZero,
+  FaDailymotion,
+  FaDeploydog,
+  FaFoursquare,
+  FaGitlab,
+  FaGripfire,
+  FaImdb,
+  FaInstagramSquare,
 } from "react-icons/fa";
 
 const Input = styled.input`
@@ -60,6 +72,42 @@ const icons = [
   {
     icon: <FaAsymmetrik />,
   },
+  {
+    icon: <FaCcDiscover />,
+  },
+  {
+    icon: <FaCloudscale />,
+  },
+  {
+    icon: <FaCloudsmith />,
+  },
+  {
+    icon: <FaCreativeCommonsNcJp />,
+  },
+  {
+    icon: <FaCreativeCommonsZero />,
+  },
+  {
+    icon: <FaDailymotion />,
+  },
+  {
+    icon: <FaDeploydog />,
+  },
+  {
+    icon: <FaFoursquare />,
+  },
+  {
+    icon: <FaGitlab />,
+  },
+  {
+    icon: <FaGripfire />,
+  },
+  {
+    icon: <FaImdb />,
+  },
+  {
+    icon: <FaInstagramSquare />,
+  }
 ];
 
 const color = [
