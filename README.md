@@ -75,3 +75,18 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 ![3](https://user-images.githubusercontent.com/33024590/136711030-bbc1d844-3686-4475-b06c-62baba4fe95b.png)
 ![4](https://user-images.githubusercontent.com/33024590/136711033-c0db787e-7196-4e2b-8845-1fb2cd4c5a75.png)
 ![image](https://user-images.githubusercontent.com/33024590/136711019-6830ca24-4232-4747-8696-49b726c04b45.png)
+
+### The exercise you choose and why
+
+I received assignment on mail, and i wanted to accept it as challenge as i never worked with drag and drop before.
+
+
+### A short explanation of what you built
+
+1. I have created grid with size provided by user which is responsive till certain limit, user have to enter numbers for row and column and press submit button to view grid
+2. Added random color to each card with random icon, icons may duplicate if grid size is more than 20,
+3. drag and drop icons: user will only see icons dragged to other card and after dropping it in other card it will swap icons
+
+### A ROADMAP
+
+if i had more time, i might made it in beutifull UI with CSS, due to on going functions at home and i couldnt do much to beutify UI, I wanted to add some validations as well, but i did not prioritize it in this assignment.
